@@ -1,4 +1,5 @@
 Vue.createApp({
+    
     data() {
       return {
         info: null,
@@ -8,9 +9,18 @@ Vue.createApp({
         alto: null,
         descp: null,
         gal: null,
-        variacion: null
+        variacion: null,
+        quantity:1,
+        items: [],
+        selectedValue: null,
+        seleccionadoValue: null,    
+        slide: [],
+        template: '#example-modal',
+        showModal: false
+        
       }
     },
+    
     mounted () {
     axios
       .get('https://graditest-store.myshopify.com/products/free-trainer-3-mmw.js')
@@ -21,42 +31,43 @@ Vue.createApp({
         this.real = response.data.price
         this.alto = response.data.price_max
         this.descp = response.data.description
-        this.gal = response.data.images
-        this.variacion = response.data.variants
+        this.slide = response.data.images
+        this.items= response.data.variants
         console.log(response.data)
     })
       .catch(error => console.log(error))
       
       
   },
-    computed:{
-        juntos: function()
-        {
-            return this.nombre+" " + this.apellido
-            
-        },
-        
-        mayus: function ()
-        {
-            return this.nombre.toUpperCase() + " " + this.apellido.toUpperCase()
-        
-        },
-            },
+    
     methods: {
-        log(){
-            console.log('1 Año se ha añadido')
-            this.edad= parseInt(this.edad) + 1
-        },
-        restar(){
-          console.log('1 Año se ha restado')
-          this.edad= parseInt(this.edad) - 1
+        showModal() {
+            let element = this.$refs.modal.$el
+            $(element).modal('show')
+          },
+        
+        formatoarray(){
+            const variado = ref([])
         },
         formatPrice(value) {
             let val = (value/1).toFixed(2).replace('.', ',')
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-        }
+        },
+        increment () {
+            this.quantity++
+          },
+          decrement () {
+            if(this.quantity === 1) {
+              alert('Negative quantity not allowed')
+            } else {
+              this.quantity--
+            }
+          },
+          
+          
         
     }
   
 }
+
   ).mount('#app')

@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba Tecnica Felipe</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue3-carousel@latest"></script>
+    <link href="https://unpkg.com/vue3-carousel@0.1.8/dist/carousel.css" rel="stylesheet" type="text/css">
     <link href="./estilo.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -16,26 +19,53 @@
             <ul class="breadcrumb">
                 <li><a href="#">Catalog</a></li>
                 <li><a href="#">Sneakers</a></li>
-                <li>Italy</li>
+                <li>{{nombre}}</li>
               </ul>
         </div>
         <div class="row">
             <div class="col">
-                <img v-bind:src="'https:' + img" v-bind:alt="nombre" v-bind:title="nombre" >    
+                <img v-bind:src="'https:' + img" v-bind:alt="nombre" v-bind:title="nombre" >
+                <br>
+                {{ slide }}    
+               
+                
             </div>
             <div class="col">
                 <p class="pretitulo">By NIKE x ALYX</p>
                 <h1>{{nombre}}</h1>
                 <span class="precioreal">{{ formatPrice(real) }}</span> <span class="preciomax">{{ formatPrice(alto) }}</span>
                 <hr>
+                Color
+                <select id="categories" v-model="selectedValue">
+                    <option v-for="item in items" :value="item.id">{{ item.option1 }}</option>
+                </select>
                 <hr>
+                Size
+                <select id="categories" v-model="selectedValue">
+                    <option v-for="item in items" :value="item.id">{{ item.option2 }}</option>
+                </select>
                 <hr>
-                <p>Descripción: {{descp}} </p>
-                <p>Galeria: {{gal}} </p>
-                <p>Variaciones: {{variacion}} </p>
+                <div class="row selectores">
+                    <div class="quantity-toggle col">
+                        <button class="menos" @click="decrement()">&mdash;</button>
+                        <input type="text" :value="quantity" readonly>
+                        <button class="mas" @click="increment()">&#xff0b;</button>
+                      </div>
+                    <div class="col total"><b>Total Price:</b> ${{ formatPrice(real) }}</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col"><button class="btn btn-light boton">Add to favorite</button></div>
+                    <div class="col "><button class="btn btn-dark boton">Add to cart</button></div>
+                    
+                </div>
+                
+                <p class="descp" v-html="descp"></p>
+                               
             </div>
         </div>
     </div>    
+       
 </body>
 <script src="./main.js"></script>
 </html>

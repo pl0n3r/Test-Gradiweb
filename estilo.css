@@ -36,10 +36,46 @@ ul.breadcrumb li a:hover {
     font-size: 22px;
     font-weight: bold;
 }
-.precioreal::before{content: "$" ;}
-.preciomax::before{content: "$" ;}
+.precioreal::before,.preciomax::before{content: "$" ;}
+
 
 .preciomax{
     color: #d1d1d1;
     text-decoration: line-through;
 }
+.descp{
+    font-size: 12px;
+    color:#d1d1d1;
+    margin-top: 5px;
+}
+.boton{width: 100%;
+    border-radius: 0 !important;
+}
+
+.quantity-toggle {
+    display: flex;
+    
+    input {
+      border: 0;
+      border-top: $border;
+      border-bottom: $border;
+      width: 2.5rem;
+      text-align: center;
+      padding: 0 .5rem;
+    }
+}
+input[type="text"] {
+    width: 50px;
+    text-align: center;
+    border:none;
+}
+.selectores{margin-bottom: 15px;}
+.menos, .mas{
+    border: none;
+    background-color: transparent;
+}
+
+.total{
+    text-align: right;
+}
+  
