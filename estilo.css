@@ -86,7 +86,7 @@ input[type="text"] {
     padding: 13px 20px;
     border-radius: 4px;
     transition: box-shadow 0.1s, top 0.1s;
-    box-shadow: 0 3px 0 rgba(0,0,0,0.3);
+    
     top: 0;
     background: #fff;
   }
@@ -144,3 +144,24 @@ input[type="text"] {
     pointer-events: auto;
   }
   
+  .carousel__item {
+	min-height: 200px;
+	width: 100%;
+	background-color: #642afb;
+	color: white;
+	font-size: 20px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.carousel__slide {
+	padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+	box-sizing: content-box;
+	border: 5px solid white;
+}

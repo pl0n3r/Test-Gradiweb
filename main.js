@@ -20,7 +20,12 @@ Vue.createApp({
         
       }
     },
-    
+    components: {
+		Carousel: VueCarousel.Carousel,
+		Pagination: VueCarousel.Pagination,
+		Navigation: VueCarousel.Navigation,
+		Slide: VueCarousel.Slide
+	},
     mounted () {
     axios
       .get('https://graditest-store.myshopify.com/products/free-trainer-3-mmw.js')
