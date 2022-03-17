@@ -13,10 +13,10 @@ Vue.createApp({
         quantity:1,
         items: [],
         selectedValue: null,
+        selectedValue1: null,
         seleccionadoValue: null,    
         slide: [],
-        template: '#example-modal',
-        showModal: false
+        
         
       }
     },
@@ -33,6 +33,7 @@ Vue.createApp({
         this.descp = response.data.description
         this.slide = response.data.images
         this.items= response.data.variants
+
         console.log(response.data)
     })
       .catch(error => console.log(error))
@@ -41,11 +42,7 @@ Vue.createApp({
   },
     
     methods: {
-        showModal() {
-            let element = this.$refs.modal.$el
-            $(element).modal('show')
-          },
-        
+                
         formatoarray(){
             const variado = ref([])
         },

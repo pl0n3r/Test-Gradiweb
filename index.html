@@ -8,6 +8,8 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://unpkg.com/vue3-carousel@latest"></script>
     <link href="https://unpkg.com/vue3-carousel@0.1.8/dist/carousel.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
     <link href="./estilo.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
@@ -27,7 +29,7 @@
                 <img v-bind:src="'https:' + img" v-bind:alt="nombre" v-bind:title="nombre" >
                 <br>
                 {{ slide }}    
-               
+                
                 
             </div>
             <div class="col">
@@ -41,7 +43,7 @@
                 </select>
                 <hr>
                 Size
-                <select id="categories" v-model="selectedValue">
+                <select id="categories" v-model="selectedValue1">
                     <option v-for="item in items" :value="item.id">{{ item.option2 }}</option>
                 </select>
                 <hr>
@@ -56,7 +58,13 @@
                 </div>
                 <div class="row">
                     <div class="col"><button class="btn btn-light boton">Add to favorite</button></div>
-                    <div class="col "><button class="btn btn-dark boton">Add to cart</button></div>
+                    
+                    <div class="col "><button class="btn btn-dark boton botonmod" id="btn-modal">Add to cart</button></div>
+                    <div class="overlay" id="overlay"></div>
+                    <div class="modal" id="modal">
+                    <button class="modal-close-btn" id="close-boton"><i class="fa fa-times" title=""></i></button>
+                    You selected <input type="text" :value="quantity" readonly> units, Color:  {{selectedValue}}  and size: {{selectedValue1}}
+                    </div>
                     
                 </div>
                 
@@ -68,4 +76,5 @@
        
 </body>
 <script src="./main.js"></script>
+<script src="./slider.js"></script>
 </html>
