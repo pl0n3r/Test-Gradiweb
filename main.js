@@ -51,9 +51,9 @@ Vue.createApp({
           console.log('1 Año se ha restado')
           this.edad= parseInt(this.edad) - 1
         },
-        saludar(name, event ){
-          console.log('Hola', name)
-          console.log(event.target)
+        formatPrice(value) {
+            let val = (value/1).toFixed(2).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         }
         
     }

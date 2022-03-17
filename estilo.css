@@ -1,0 +1,45 @@
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    
+  }
+ul.breadcrumb li {
+    display: inline;
+    font-size: 12px;
+}
+ul.breadcrumb li :active{
+    font-weight: bold;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: #d1d1d1;
+    content: "/\00a0";
+}
+ul.breadcrumb li a {
+    color: #d1d1d1  ;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pretitulo{
+    font-size: 11px;
+    color: #d1d1d1;
+    margin-bottom: -5px;
+    }
+
+.precioreal{
+    color: #000000;
+    font-size: 22px;
+    font-weight: bold;
+}
+.precioreal::before{content: "$" ;}
+.preciomax::before{content: "$" ;}
+
+.preciomax{
+    color: #d1d1d1;
+    text-decoration: line-through;
+}
